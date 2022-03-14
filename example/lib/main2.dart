@@ -426,7 +426,16 @@ class _PageTurnEffect extends CustomPainter {
       final yv = ((h * calcR * movX) * hWRatio) - hWCorrection;
       final ds = (yv * v);
       final dr = Rect.fromLTRB(xv * w, 0.0 - ds, xv * w + 1.0, h + ds);
+      // print("======== paint, sr: $sr, dr: $dr");
       c.drawImageRect(image, sr, dr, ip);
+      // // Based on https://stackoverflow.com/questions/65439889/flutter-canvas-drawimage-draws-a-pixelated-image
+      // paintImage(
+      //   canvas: c,
+      //   rect: dr,
+      //   fit: BoxFit.fill,
+      //   image: image, // <- the loaded image
+      //   filterQuality: FilterQuality.high,
+      // );
     }
   }
 

@@ -24,13 +24,13 @@ class _HomeScreenState extends State<HomeScreen> {
         showDragCutoff: false,
         lastPage: Container(child: Center(child: Text('Last Page!'))),
         children: <Widget>[
-          for (var i = 0; i < 20; i++) AlicePage(page: i),
+          for (var i = 0; i < 6; i++) AlicePage(page: i),
         ],
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.search),
         onPressed: () {
-          _controller.currentState.goToPage(2);
+          _controller.currentState.goToPage(0);
         },
       ),
     );
