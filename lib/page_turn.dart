@@ -7,7 +7,8 @@ import 'src/builders/index.dart';
 class PageTurn extends StatefulWidget {
   const PageTurn({
     Key key,
-    this.duration = const Duration(milliseconds: 450),
+    // this.duration = const Duration(milliseconds: 450),
+    this.duration = const Duration(milliseconds: 50),
     this.cutoff = 0.6,
     this.backgroundColor = const Color(0xFFFFFFCC),
     @required this.children,
@@ -89,6 +90,7 @@ class PageTurnState extends State<PageTurn> with TickerProviderStateMixin {
   bool get _isFirstPage => pageNumber == 0;
 
   void _turnPage(DragUpdateDetails details, BoxConstraints dimens) {
+    // print("========= turnPage[$pageNumber]");
     final _ratio = details.delta.dx / dimens.maxWidth;
     if (_isForward == null) {
       if (details.delta.dx > 0) {

@@ -1,7 +1,8 @@
 import 'dart:ui' as ui;
 
-import 'package:flutter/material.dart';
+//import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
 
 import '../effects/index.dart';
 
@@ -34,13 +35,10 @@ class _PageTurnWidgetState extends State<PageTurnWidget> {
   }
 
   void _captureImage(Duration timeStamp) async {
+    print("========== CAPTURING IMAGE");
     final pixelRatio = MediaQuery.of(context).devicePixelRatio;
     final boundary =
         _boundaryKey.currentContext.findRenderObject() as RenderRepaintBoundary;
-    if (boundary.debugNeedsPaint) {
-      await Future.delayed(const Duration(milliseconds: 20));
-      return _captureImage(timeStamp);
-    }
     final image = await boundary.toImage(pixelRatio: pixelRatio);
     setState(() => _image = image);
   }
